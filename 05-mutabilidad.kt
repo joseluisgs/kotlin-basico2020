@@ -1,39 +1,29 @@
 fun main(args: Array<String>) {
-    // Defino listas con null
-    val listaDeEnterosConNulos: List<Int?> = listOf(0, 1, 2, null)
+	val list = listOf("Test 1", "Test 2")
+   	var mutableList = mutableListOf("Test 1", "Test 2")
     
-    // Recorro con un for
-    println("------ in ------")
-    for (number in listaDeEnterosConNulos) {
-    	// Si no es nulo lo imprimo, si es nulo pongo null, así no rebienta
-         number?.let { print(it) } ?: println("nulo")
+    //- No compilará puesto que no se pueden añadir objetos a una lista inmutable
+    //list.add("Test 3")
+    
+    list.map {
+        println(it)
     }
+
+    // Con un for
+    for(elem in list) {
+        println(elem)
+    }
+
     
-    println("------ map ------")
-    
-    listaDeEnterosConNulos.map {
+    println("Antes de añadir un nuevo objeto")
+    mutableList.map {
         println(it)
     }
     
-    println("------ in ------")
+    mutableList.add("Test 3")
     
-    // 
-    for (number in 1..10) {
-        if (number != 10) print(number) else println(number)
-    }
-    
-    println("------ until ------")
-    
-    for (number in 1 until 10) {
-        print(number)
-    }
-    
-    println("")
-    println("------ while ------")
-    
-    var count = 10
-    while (count > 0) {
-       print(count)
-       count--
+    println("Después de añadir un nuevo objeto")
+    mutableList.map {
+        println(it)
     }
 }
